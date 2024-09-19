@@ -6,6 +6,7 @@
 import postcss from "postcss";
 import postcssPkg from "postcss/package.json";
 import { satisfies } from "semver";
+import reporter from "postcss-reporter";
 
 import schema from "./options.json";
 import { icssParser, importParser, urlParser } from "./plugins";
@@ -169,7 +170,7 @@ export default async function loader(content, map, meta) {
   const { resourcePath } = this;
 
   let result;
-
+  plugins.push(reporter());
   try {
     result = await postcss(plugins).process(content, {
       hideNothingWarning: true,
@@ -187,7 +188,6 @@ export default async function loader(content, map, meta) {
     if (error.file) {
       this.addDependency(error.file);
     }
-
     callback(
       error.name === "CssSyntaxError" ? syntaxErrorFactory(error) : error
     );

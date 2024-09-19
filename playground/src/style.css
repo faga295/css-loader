@@ -1,0 +1,11 @@
+:local(.className) {
+  background: red;
+  color: yellow;
+}
+:global(.className1) {
+  color: red;
+}
+:local(.subClass) {
+  composes: className1 from global;
+  background: blue;
+}

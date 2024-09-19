@@ -90,7 +90,6 @@ const plugin = (options = {}) => {
 
           options.api.push({ importName, dedupe: true, index });
         }
-
         for (const [replacementIndex, token] of Object.keys(
           item.tokens
         ).entries()) {

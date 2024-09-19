@@ -1,0 +1,6 @@
+.a {
+  background-image: -webkit-image-set(
+    url("./rspack-logo.png") 1x,
+    url("./rspack-logo.png") 2x
+  );
+}

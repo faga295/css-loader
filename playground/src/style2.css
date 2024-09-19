@@ -1,0 +1,6 @@
+body {
+  color: blue;
+}
+:export {
+  v-primary: red;
+}

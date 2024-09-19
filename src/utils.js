@@ -8,7 +8,8 @@ import path from "path";
 import modulesValues from "postcss-modules-values";
 import localByDefault from "postcss-modules-local-by-default";
 import extractImports from "postcss-modules-extract-imports";
-import modulesScope from "postcss-modules-scope";
+
+import modulesScope from "../../postcss-modules-scope";
 
 const WEBPACK_IGNORE_COMMENT_REGEXP = /webpackIgnore:(\s+)?(true|false)/;
 
@@ -779,6 +780,7 @@ function getModulesPlugins(options, loaderContext) {
       extractImports(),
       modulesScope({
         generateScopedName(exportName) {
+          console.log(exportName);
           let localIdent;
 
           if (typeof getLocalIdent !== "undefined") {
